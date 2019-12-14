@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h1>data app</h1>
+    <nav style="display:flex;">
+        <li><a href="/">enter</a> </li>
+        <li><a href="/log">list</a></li>
+    </nav>
+    <p>Laititude: <span id="latitude"></span>&deg;</p>
+    <p>Longitude: <span id="longitude"></span>&deg;</p>
+    <p>The weather in <span id="timezone"></span> is <span id="summary"></span> with a temperature of <span
+            id="temperature"></span>C.
+    </p>
+    <p>
+        <span id="aq_parameter"></span><span id="aq_value"></span><span id="aq_units"></span> last updated: <span
+            id="aq_date"></span>
+    </p>
+    <input type="text" id="mood">
+    <button type="submit" id="btn_submit">submit</button>
+    <script src="main.js"></script>
+</body>
+
+</html>

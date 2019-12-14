@@ -1,0 +1,23 @@
+body,
+html {
+  margin: 0;
+  padding: 2vw;
+  background: rgb(240, 240, 240);
+}
+
+div {
+  margin-top: 2rem;
+  padding: 1vw;
+  width: 50vw;
+  background: lightgrey;
+}
+li {
+  list-style: none;
+  margin-right: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(14, 24, 24);
+  font-size: large;
+}
