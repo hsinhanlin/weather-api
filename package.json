@@ -9,7 +9,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -w server.js server.js",
-    "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
   "keywords": [],
