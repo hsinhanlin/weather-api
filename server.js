@@ -3,20 +3,17 @@ const DataBase = require('nedb');
 const fetch = require('node-fetch');
 require('dotenv').config();
 const app = express();
+const port = process.env.PORT || 3000;
 
-console.log(process.env.API_KEY);
-
-app.listen(3000, () => console.log('listen 3000'));
+app.listen(port, () => console.log(`listen ${port}`));
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 
 const db = new DataBase('database.db');
 db.loadDatabase();
-// db.insert({ name: 'Tom', status: 'yum' });
 
 
 app.get('/api', (req, res) => {
-    // res.json({ test: 123 });
     db.find({}, (err, data) => {
         if (err) {
             console.log(err);
@@ -35,13 +32,6 @@ app.post('/api', (req, res) => {
     data.timestamp = timestamp;
     db.insert(data);
     res.json(data);
-    // res.json({
-    //     satus: 'success',
-    //     timestamp: timestamp,
-    //     mood: data.mood,
-    //     latitude: data.lat,
-    //     longitude: data.lot
-    // });
 });
 
 // proxy server for darksky
@@ -50,7 +40,7 @@ app.get('/weather/:latlon', async (req, res) => {
     const latlon = req.params.latlon.split(',');
     const lat = latlon[0];
     const lon = latlon[1];
-    // console.log(lat, lon);
+
     const api_key = process.env.API_KEY;
     const weather_url = `https://api.darksky.net/forecast/${api_key}/${lat},${lon}`;
     const weather_response = await fetch(weather_url);
@@ -65,5 +55,5 @@ app.get('/weather/:latlon', async (req, res) => {
         air_quality: air_data,
     };
     res.json(data);
-    // console.log(data);
+
 });
